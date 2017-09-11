@@ -359,7 +359,7 @@ class Client
     public function createAccountTransaction(Account $account, Transaction $transaction, array $params = [])
     {
         $data = $this->mapper->fromTransaction($transaction);
-        $this->postAndMap($account->getResourcePath().'/transactions', $data + $params, 'toTransaction', $transaction);
+        return $this->postAndMap($account->getResourcePath().'/transactions', $data + $params, 'toTransaction', $transaction);
     }
 
     public function completeTransaction(Transaction $transaction, array $params = [])
